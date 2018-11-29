@@ -22,10 +22,18 @@ class Genes(object):
     def mutate(self, mutations):
         insert_deadly_mutations(self.genes, mutations)
 
+    def flip(self, position):
+        if self.genes[position] == 1:
+            self.genes[position] = 0
+        elif self.genes[position] == 0:
+            self.genes[position] = 1
+        else:
+            raise ValueError('Genes value on position is %s' % self.genes[position])
+
     @classmethod
-    def create(cls, lenght, initial_mutations):
+    def create(cls, length, initial_mutations):
         genes = Genes()
-        genes.genes = [0] * lenght
+        genes.genes = [0] * length
         insert_deadly_mutations(genes.genes, initial_mutations)
         return genes
 
@@ -34,3 +42,9 @@ def insert_deadly_mutations(genes, mutations):
     positions = randint(0, len(genes), mutations)
     for p in positions:
         genes[p] = 1
+
+
+def flip_genes(genes, num_flips):
+    positions = randint(0, len(genes), num_flips)
+    for p in positions:
+        genes.flip(p)

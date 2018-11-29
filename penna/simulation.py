@@ -13,7 +13,13 @@ class SimulationParameters(object):
 
 
 def simulate(parameters, steps):
-    population = [Animal(parameters.maturity, parameters.birth_rate, parameters.death_rate)
+    population = [Animal.create(parameters.maturity,
+                         parameters.birth_rate,
+                         parameters.deadly_mutations,
+                         parameters.initial_mutations,
+                         parameters.mutations_per_year,
+                         parameters.genes_length
+                         )
                   for i in range(parameters.num_animals)]
 
     years = list(range(steps))
