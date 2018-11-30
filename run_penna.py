@@ -51,7 +51,7 @@ if show_plots:
     plt.xlabel('Dead Age')
     plt.show()
 else:
-    print("Cannot show plots, maybe matplotlib could not be loaed.")
+    log.warning("Cannot show plots, maybe matplotlib could not be loaed.")
     print(result.years)
     print(result.num_animals_by_year)
     print(result.death_cases)
