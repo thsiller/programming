@@ -17,15 +17,15 @@ log.debug('Setup Model Parameters')
 # Setup Model Parameters
 parameters = SimulationParameters()
 parameters.num_animals = 200
-parameters.maturity = 3
 parameters.birth_rate = 0.2
-parameters.deadly_mutations = 8  # animal dies when number of deadly mutations is reached
-parameters.initial_mutations = 1
+parameters.deadly_mutations = 4  # animal dies when number of deadly mutations is reached
+parameters.initial_mutations = 2
 parameters.mutations_per_year = 1
-parameters.genes_length = 20
+parameters.genes_length = 40
 
 # Number of years simulated
-num_years = 1000
+num_years = 100
+parameters.maturity = 3
 
 # Run the model
 log.debug('Run the Simulation')

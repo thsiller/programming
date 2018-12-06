@@ -9,6 +9,9 @@ class Genes(object):
     def deadly_mutations(self, year):
         return sum(self.genes[:year])
 
+    def __len__(self):
+        return len(self.genes)
+
     def clone(self):
         genes = Genes()
         genes.genes = self.genes
@@ -20,7 +23,7 @@ class Genes(object):
         return genes
 
     def mutate(self, mutations):
-        insert_deadly_mutations(self.genes, mutations)
+        flip_genes(self, mutations)
 
     def flip(self, position):
         if self.genes[position] == 1:
@@ -34,17 +37,30 @@ class Genes(object):
     def create(cls, length, initial_mutations):
         genes = Genes()
         genes.genes = [0] * length
-        insert_deadly_mutations(genes.genes, initial_mutations)
+        flip_genes(genes, initial_mutations)
         return genes
 
 
 def insert_deadly_mutations(genes, mutations):
+    """
+    Insert number of mutations into genes vector
+
+    :param genes: list of 0 and 1
+    :param mutations: integer
+    :return: None
+    """
     positions = randint(0, len(genes), mutations)
     for p in positions:
         genes[p] = 1
 
 
 def flip_genes(genes, num_flips):
+    """
+    Flips certain number of genes given by num_flips.
+    :param genes: list of 0 and 1
+    :param num_flips: integer
+    :return:
+    """
     positions = randint(0, len(genes), num_flips)
     for p in positions:
         genes.flip(p)
