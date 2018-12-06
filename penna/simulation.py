@@ -53,5 +53,6 @@ def simulate(parameters, steps):
     results.num_animals_by_year = num_animals_by_year
     results.death_cases = death_cases
     results.dead_age = dead_age
+    results.population = population
 
     return results

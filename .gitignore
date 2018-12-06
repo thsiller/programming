@@ -1,3 +1,4 @@
 notebooks
-
+sandbox.py
 .idea
+*.pyc

@@ -18,14 +18,14 @@ log.debug('Setup Model Parameters')
 parameters = SimulationParameters()
 parameters.num_animals = 200
 parameters.maturity = 3
-parameters.birth_rate = 0.1
+parameters.birth_rate = 0.2
 parameters.deadly_mutations = 8  # animal dies when number of deadly mutations is reached
 parameters.initial_mutations = 1
 parameters.mutations_per_year = 1
 parameters.genes_length = 20
 
 # Number of years simulated
-num_years = 50
+num_years = 1000
 
 # Run the model
 log.debug('Run the Simulation')
@@ -56,3 +56,6 @@ else:
     print(result.num_animals_by_year)
     print(result.death_cases)
     print(result.dead_age)
+
+for animal in result.population:
+    print(animal.genes.genes, animal.age)
